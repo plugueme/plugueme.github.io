@@ -21,8 +21,8 @@ body {
 }
 
 #spotlight {
-  background: url(../img/spotlight-background.jpg) center no-repeat #000;
-  height: 500px;
+  background: url(../img/spotlight-background.jpg) bottom no-repeat #000;
+  height: 300px;
   border-bottom: 10px solid #c0392b;
 }
 
@@ -35,7 +35,7 @@ body {
 #spotlight h2 {
   display: inline-block;
   font-size:80px;
-  margin-top: 100px;
+  margin-top: 70px;
   color: #FFF;
   font-weight: 100;
   text-shadow: 0px 0px 3px #555;
@@ -64,6 +64,11 @@ body {
   height: 450px;
   background-color: #fff;
   text-align: left;
+}
+
+#plug img, #socket img {
+  margin: 20px 0;
+  border: 6px solid #eee;
 }
 
 #plug h2, #socket h2 {
