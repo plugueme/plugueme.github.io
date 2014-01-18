@@ -1,0 +1,23 @@
+<div class="modal outer">
+  <div class="modal container">
+    <form name="form" ng-submit="submit()" class="form-horizontal">
+      <div><a href ng-click="$close()">Fechar</a></div>
+      <div>Comprando {{data.produto}} Plugue.me</div>
+      <div>Deixe seus dados para que possamos enviar 
+        as informações para conclusão da sua compra.</div>
+      <div>
+        <label for="nome">Nome</label>
+        <input ng-model="data.nome" name="nome" type="text" ng-minlength="5" required />
+        <span ng-show="showErrors && form.nome.$error.minlength">Deve ter pelo menos 5 letras.</span>
+      </div>
+      <div>
+        <label for="nome">Email</label>
+        <input ng-model="data.email" name="email" type="email" required />
+        <span ng-show="showErrors && form.email.$error.email">Deve ser um email válido.</span>
+      </div>
+      <div>
+        <button type="submit">Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>
