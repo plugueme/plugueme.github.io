@@ -38,12 +38,12 @@ plugueme.controller('ComprarCtrl', ['$scope', '$http', '$routeParams', '$locatio
   
   $scope.postAndThanks = function() {
     console.log($scope.data);
-    /*$http.defaults.useXDomain = true;
+    $http.defaults.useXDomain = true;
     resources.compras.save($scope.data, function() {
       $location.path('/obrigado/' + $routeParams.produto);
     }, function() {
       $location.path('/erro/' + $routeParams.produto);
-    });*/
+    });
   }
   
 }]);
