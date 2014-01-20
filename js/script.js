@@ -2,7 +2,9 @@
 
 var plugueme = angular.module('plugueme', ['ngRoute', 'ngResource', 'btford.modal']);
 
-plugueme.config(['$routeProvider', function($routeProvider) {
+plugueme.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
+  $httpProvider.defaults.useXDomain = true;
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 	$routeProvider
 	  .when('/', {controller: 'ContatoCtrl'})
 	  .when('/comprar/:produto', {templateUrl: 'partials/comprar.html', controller: 'ComprarCtrl'})
@@ -14,7 +16,7 @@ plugueme.config(['$routeProvider', function($routeProvider) {
 
 plugueme.factory('resources', ['$resource', function($resource) {
   return {
-    compras: $resource('http://localhost:8585/contatos_basicos')
+    compras: $resource('http://data.plugue.me:3000/contatos_basicos')
   };
 }]);
 
@@ -25,8 +27,8 @@ plugueme.controller('MainCtrl', ['$scope', '$http', '$routeParams', '$location',
 }]);
   
 plugueme.controller('ComprarCtrl', ['$scope', '$http', '$routeParams', '$location', 'resources', function($scope, $http, $routeParams, $location, resources) {
-  $scope.data = {};
-  $scope.data.produto = $routeParams.produto;
+  $scope.data = { extra: {} };
+  $scope.data.extra.produto = $routeParams.produto;
   
   $scope.submit = function() {
     $scope.showErrors = false;
@@ -38,7 +40,6 @@ plugueme.controller('ComprarCtrl', ['$scope', '$http', '$routeParams', '$locatio
   
   $scope.postAndThanks = function() {
     console.log($scope.data);
-    $http.defaults.useXDomain = true;
     resources.compras.save($scope.data, function() {
       $location.path('/obrigado/' + $routeParams.produto);
     }, function() {
