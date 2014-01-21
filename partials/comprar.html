@@ -1,23 +1,25 @@
 <div class="modal outer">
   <div class="modal container">
     <form name="form" ng-submit="submit()" class="form-horizontal">
-      <div><a href ng-click="$close()">Fechar</a></div>
-      <div>Comprando {{data.extra.produto}} Plugue.me</div>
-      <div>Deixe seus dados para que possamos enviar 
+      <div><a href ng-click="$close()" class="close">Fechar</a></div>
+      <h2>Comprando {{data.extra.produto}} Plugue.me</h2>
+      <div class="text">Deixe seus dados para que possamos enviar 
         as informações para conclusão da sua compra.</div>
-      <div>
-        <label for="nome">Nome</label>
-        <input ng-model="data.nome" name="nome" type="text" ng-minlength="5" required />
-        <span ng-show="showErrors && form.nome.$error.minlength">Deve ter pelo menos 5 letras.</span>
-      </div>
-      <div>
-        <label for="nome">Email</label>
-        <input ng-model="data.email" name="email" type="email" required />
-        <span ng-show="showErrors && form.email.$error.email">Deve ser um email válido.</span>
-      </div>
-      <div>
+      <div class="form">
+        <div class="field">
+          <label for="nome">Nome</label>
+          <input ng-model="data.nome" name="nome" type="text" ng-minlength="5" required />
+          <span ng-show="showErrors && form.nome.$error.minlength">Deve ter pelo menos 5 letras.</span>
+        </div>
+        <div class="field">
+          <label for="nome">Email</label>
+          <input ng-model="data.email" name="email" type="email" required />
+          <span ng-show="showErrors && form.email.$error.email">Deve ser um email válido.</span>
+        </div>
+      </div> 
+      <div class="button">
         <button type="submit">Enviar</button>
-      </div>
+      </div> 
     </form>
   </div>
 </div>
