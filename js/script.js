@@ -39,7 +39,6 @@ plugueme.controller('ComprarCtrl', ['$scope', '$http', '$routeParams', '$locatio
   };
   
   $scope.postAndThanks = function() {
-    console.log($scope.data);
     resources.compras.save($scope.data, function() {
       $location.path('/obrigado/' + $routeParams.produto);
     }, function() {
