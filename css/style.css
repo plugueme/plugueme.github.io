@@ -170,6 +170,7 @@ body {
 .container.modal .form {
   display: block;
   float: left;
+  width: 100%;
 }
 
 .container.modal .close {
@@ -183,12 +184,17 @@ body {
 }
 
 .container.modal .content {
-  
   display: inline-block;
 }
 
 .container.modal .field {
   margin: 10px 0;
+}
+
+.container.modal .field span {
+  display: block;
+  text-align: right;
+  margin: 10px 50px 15px 0; 
 }
 
 .container.modal label {
@@ -202,10 +208,12 @@ body {
   border: 0;
   font-size: 18px;
   padding: 5px 10px;
+  width: 350px;
 }
 
 .container.modal .submit {
   width: 100px;
+  margin: 0 auto;
 }
 
 .container.modal button {
@@ -216,4 +224,5 @@ body {
   font-size: 20px;
   border: 0px;
   border-radius: 20px;
+  margin-top: 20px;
 }
