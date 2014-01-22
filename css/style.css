@@ -182,6 +182,11 @@ body {
   text-indent: -999em;
 }
 
+.container.modal .content {
+  
+  display: inline-block;
+}
+
 .container.modal .field {
   margin: 10px 0;
 }
@@ -199,13 +204,16 @@ body {
   padding: 5px 10px;
 }
 
-.container.modal .button {
-  float: right;
+.container.modal .submit {
+  width: 100px;
 }
 
 .container.modal button {
-  background: 0;
-  
-  border: 0px;
+  font-family: 'Josefin Slab', serif;
+  background: #c0392b;
   color: #FFF;
+  padding: 10px 20px;
+  font-size: 20px;
+  border: 0px;
+  border-radius: 20px;
 }
