@@ -1,0 +1,33 @@
+<div class="modal outer">
+  <div class="modal container">
+    <form name="form" ng-submit="submit()" class="form-horizontal">
+      <div><a href ng-click="$close()" class="close">Fechar</a></div>
+      <h2>Plugue.me</h2>
+      <div class="content">
+        <div class="text">
+          Envie sua pergunta ou sugestão que entraremos em contato.
+        </div>
+        <div class="form">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input ng-model="data.nome" name="nome" type="text" ng-minlength="5" required />
+            <span ng-show="showErrors && form.nome.$error.minlength">Deve ter pelo menos 5 letras.</span>
+          </div>
+          <div class="field">
+            <label for="nome">Email</label>
+            <input ng-model="data.email" name="email" type="email" required />
+            <span ng-show="showErrors && form.email.$error.email">Deve ser um email válido.</span>
+          </div>
+          <div class="field">
+            <label for="nome">Mensagem</label>
+            <textarea ng-model="data.extra.mensagem" name="mensagem" ng-minlength="5" required></textarea>
+            <span ng-show="showErrors && form.extra.mensagem.$error.minlength">Deve ter pelo menos 5 letras.</span>
+          </div>
+        </div> 
+        <div class="submit">
+          <button type="submit">Enviar</button>
+        </div> 
+      </div>
+    </form>
+  </div>
+</div>
