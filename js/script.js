@@ -9,6 +9,7 @@ plugueme.config(['$routeProvider', '$httpProvider', function($routeProvider, $ht
 	  .when('/', {controller: 'ContatoCtrl'})
 	  .when('/comprar/:produto', {templateUrl: 'partials/comprar.html', controller: 'ComprarCtrl'})
 	  .when('/saiba-mais/:produto', {templateUrl: 'partials/comprar.html', controller: 'ComprarCtrl'})
+	  .when('/contato/:produto', {templateUrl: 'partials/contato.html', controller: 'ContatoCtrl'})
 	  .when('/obrigado/:produto', {templateUrl: 'partials/obrigado.html'})
 	  .when('/erro/:produto', {templateUrl: 'partials/erro.html'})
 	  .otherwise({ redirectTo: '/' });
@@ -29,6 +30,29 @@ plugueme.controller('MainCtrl', ['$scope', '$http', '$routeParams', '$location',
 plugueme.controller('ComprarCtrl', ['$scope', '$http', '$routeParams', '$location', 'resources', function($scope, $http, $routeParams, $location, resources) {
   $scope.data = { extra: {} };
   $scope.data.extra.produto = $routeParams.produto;
+  
+  $scope.submit = function() {
+    $scope.showErrors = false;
+    if ($scope.form.$valid)
+      $scope.postAndThanks();
+    else
+      $scope.showErrors = true;
+  };
+  
+  $scope.postAndThanks = function() {
+    resources.compras.save($scope.data, function() {
+      $location.path('/obrigado/' + $routeParams.produto);
+    }, function() {
+      $location.path('/erro/' + $routeParams.produto);
+    });
+  }
+  
+}]);
+
+plugueme.controller('ContatoCtrl', ['$scope', '$http', '$routeParams', '$location', 'resources', function($scope, $http, $routeParams, $location, resources) {
+  $scope.data = { extra: {} };
+  $scope.data.extra.produto = $routeParams.produto;
+  $scope.data.extra.mensagem = 'oi' ;
   
   $scope.submit = function() {
     $scope.showErrors = false;
