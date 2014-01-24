@@ -1,6 +1,6 @@
 'use strict';
 
-var plugueme = angular.module('plugueme', ['ngRoute', 'ngResource', 'btford.modal']);
+var plugueme = angular.module('plugueme', ['angulartics', 'angulartics.google.analytics', 'ngRoute', 'ngResource', 'btford.modal']);
 
 plugueme.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
   $httpProvider.defaults.useXDomain = true;
