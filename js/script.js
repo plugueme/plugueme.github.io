@@ -30,6 +30,7 @@ plugueme.controller('MainCtrl', ['$scope', '$http', '$routeParams', '$location',
 plugueme.controller('ComprarCtrl', ['$scope', '$http', '$routeParams', '$location', 'resources', function($scope, $http, $routeParams, $location, resources) {
   $scope.data = { extra: {} };
   $scope.data.extra.produto = $routeParams.produto;
+  $scope.data.extra.referencia = location.hash;
   
   $scope.submit = function() {
     $scope.showErrors = false;
@@ -52,7 +53,7 @@ plugueme.controller('ComprarCtrl', ['$scope', '$http', '$routeParams', '$locatio
 plugueme.controller('ContatoCtrl', ['$scope', '$http', '$routeParams', '$location', 'resources', function($scope, $http, $routeParams, $location, resources) {
   $scope.data = { extra: {} };
   $scope.data.extra.produto = $routeParams.produto;
-  $scope.data.extra.mensagem = 'oi' ;
+  $scope.data.extra.referencia = location.hash;
   
   $scope.submit = function() {
     $scope.showErrors = false;
